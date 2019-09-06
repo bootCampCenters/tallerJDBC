@@ -61,15 +61,6 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets;
 
-   
-    
-    
-
-    public void setPets(Set<Pet> pets) {
-	this.pets = pets;
-    }
-
-
 
     public String getAddress() {
         return this.address;
@@ -162,4 +153,5 @@ public class Owner extends Person {
             .append("telephone", this.telephone)
             .toString();
     }
+   
 }
