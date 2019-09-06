@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.samples.petclinic.owner.Owner;
 import org.springframework.samples.petclinic.owner.Pet;
@@ -103,7 +106,9 @@ public class Ejercicios {
 	public static void reto(Connection connection, Statement statement) throws SQLException {
 		Owner ze = new Owner();
 		Pet perro = new Pet();
-		Date data = new Date(1550, 2, 4);
+		
+
+		Date data = new Date(1550/2/4);
 
 		ze.setId(null);
 		ze.setFirstName("ZeZe");
@@ -137,7 +142,7 @@ public class Ejercicios {
 
 		String sql3 = "INSERT INTO pets VALUES (null,?,?,?,?)";
 		preparedStatement = connection.prepareStatement(sql3);
-		preparedStatement.setString(1, "bolinhas");
+		preparedStatement.setString(1, perro.getName());
 		preparedStatement.setDate(2, data);
 		preparedStatement.setInt(3, id);
 		preparedStatement.setInt(4, 5);

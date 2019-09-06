@@ -40,9 +40,9 @@ public class HibernateApplication implements CommandLineRunner {
 		System.out.println("\n\nPruebas de Hibernate\n=====================\n\n");
 		Pet p = petRepository.findById(8);
 		List<Visit> visits = visitRepository.findByPetId(p.getId());
-		for(Visit v : visits) {
-			System.out.println(v.toString());
-		}
+		/*
+		 * for(Visit v : visits) { System.out.println(v.toString()); }
+		 */
 		
 		/***
 		 * Crear aquí las facturas y enlazarlas, por último, volver a mostrar dichas visitas
@@ -51,16 +51,29 @@ public class HibernateApplication implements CommandLineRunner {
 		b.setIdNumber(1234567890);
 		b.setMoney(1.0);
 		b.setPaymentDate(new Date());
+		
+		Bill c = new Bill();
+		c.setIdNumber(23424);
+		c.setMoney(5.0);
+		c.setPaymentDate(new Date());
+		
 		List<Bill> listaFacturas = new ArrayList<Bill>();
 		listaFacturas.add(b);
+		listaFacturas.add(c);
 		listaFacturas = billRepository.save(listaFacturas);
 		visits.get(0).setBill(b);
+		visits.get(1).setBill(c);
 		visitRepository.save(visits.get(0));
+		visitRepository.save(visits.get(1));
 
 		p = petRepository.findById(8);
 		visits = visitRepository.findByPetId(p.getId());
 		for(Visit v : visits) {
 			System.out.println(v.toString());
 		}
+		
+		
+		
+		
 	}
 }
