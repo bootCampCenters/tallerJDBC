@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.concurrent.locks.StampedLock;
 
 import javax.naming.spi.DirStateFactory.Result;
 
@@ -66,7 +67,7 @@ public class JDBCApplication {
 			System.out.println("\n\n===== EJERCICIO 5 =====");
 			Ejercicios.ejercicio5(connection);
 			System.out.println(" \n\n===== RETO =====");
-			// Ejercicios.reto();
+			Ejercicios.reto(connection,statement);
 		} catch (SQLException e) {
 			System.out.println("Connection Failed! Check output console");
 			e.printStackTrace();
