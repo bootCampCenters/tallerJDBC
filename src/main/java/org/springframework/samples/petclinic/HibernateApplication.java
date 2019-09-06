@@ -1,6 +1,7 @@
 package org.springframework.samples.petclinic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.samples.petclinic.owner.Bill;
+import org.springframework.samples.petclinic.owner.BillDetails;
 import org.springframework.samples.petclinic.owner.BillRepository;
 import org.springframework.samples.petclinic.owner.Pet;
 import org.springframework.samples.petclinic.owner.PetRepository;
@@ -72,8 +74,17 @@ public class HibernateApplication implements CommandLineRunner {
 			System.out.println(v.toString());
 		}
 		
+		BillDetails line = new BillDetails();
+		line.setDetails("JoaoRafael");
+		line.setBill(c);
+		ArrayList<BillDetails> lines = new ArrayList<BillDetails>();
+		lines.add(line);
+		c.setBillDetails(lines);
+		billRepository.save(c);
 		
-		
+		/*
+		 * Bill billDel = billRepository.findOne(3); billRepository.delete(billDel);
+		 */
 		
 	}
 }

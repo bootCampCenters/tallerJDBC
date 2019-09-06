@@ -57,6 +57,14 @@ public class Bill extends BaseEntity {
 	@OneToMany( cascade = CascadeType.ALL, mappedBy = "bill")
 	private List<BillDetails> billDetails;
 	
+	public List<BillDetails> getBillDetails() {
+		return billDetails;
+	}
+
+	public void setBillDetails(List<BillDetails> billDetails) {
+		this.billDetails = billDetails;
+	}
+
 	public Bill() {
 	}
 

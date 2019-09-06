@@ -37,6 +37,14 @@ public class BillDetails extends BaseEntity {
 	public void setBill(Bill bill) {
 		this.bill = bill;
 	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
   
 
 
