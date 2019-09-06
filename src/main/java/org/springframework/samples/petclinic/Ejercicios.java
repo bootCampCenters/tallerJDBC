@@ -143,10 +143,11 @@ public class Ejercicios {
 		preparedStatement.setInt(4, 5);
 		preparedStatement.executeUpdate();
 
-		sql = "DELETE * FROM owners WHERE id=?";
-		preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.setInt(1, id);
-		preparedStatement.execute(sql);
+		/*
+		 * sql = "DELETE * FROM owners WHERE id=?"; preparedStatement =
+		 * connection.prepareStatement(sql); preparedStatement.setInt(1, id);
+		 * preparedStatement.execute(sql);
+		 */
 
 	}
 
