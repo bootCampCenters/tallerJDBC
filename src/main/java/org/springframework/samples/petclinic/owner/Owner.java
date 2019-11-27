@@ -45,7 +45,18 @@ import org.springframework.samples.petclinic.model.Person;
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
-    @Column(name = "address")
+	
+	/*
+	 * @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner") private List<Bill>
+	 * bills;
+	 * 
+	 * 
+	 * public List<Bill> getBills() { return bills; }
+	 * 
+	 * public void setBills(List<Bill> bills) { this.bills = bills; }
+	 */
+
+	@Column(name = "address")
     @NotEmpty
     private String address;
 
@@ -61,17 +72,12 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets;
 
-   
-    
-    
 
     public void setPets(Set<Pet> pets) {
-	this.pets = pets;
-    }
+		this.pets = pets;
+	}
 
-
-
-    public String getAddress() {
+	public String getAddress() {
         return this.address;
     }
 
@@ -162,4 +168,5 @@ public class Owner extends Person {
             .append("telephone", this.telephone)
             .toString();
     }
+   
 }
